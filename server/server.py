@@ -63,4 +63,29 @@ def index():
 
 
 if __name__ == '__main__':
+    import threading
+    import pystray
+    from PIL import Image as PILImage
+
+    def create_tray():
+        try:
+            icon_img = PILImage.open('../extension/icons/icon48.png')
+        except Exception:
+            icon_img = PILImage.new('RGB', (48, 48), (167, 139, 250))
+
+        def on_quit(icon, item):
+            icon.stop()
+            os._exit(0)
+
+        tray = pystray.Icon(
+            'StudyAI',
+            icon_img,
+            'Study AI Server — Running',
+            menu=pystray.Menu(pystray.MenuItem('Quit', on_quit))
+        )
+        tray.run()
+
+    tray_thread = threading.Thread(target=create_tray, daemon=True)
+    tray_thread.start()
+    print("Study AI server running on http://localhost:5000")
     app.run(port=5000, debug=False)
