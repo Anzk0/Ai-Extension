@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study AI</title>
+  <link rel="stylesheet" href="overlay.css">
+</head>
+<body>
+  <div id="panel" class="panel">
+    <div class="header">
+      <span class="title">Study AI</span>
+      <div class="header-actions">
+        <button id="minimise-btn" title="Minimise">&#8722;</button>
+        <button id="close-btn" title="Close">&#x2715;</button>
+      </div>
+    </div>
+
+    <div class="topic-bar">
+      <select id="topic-select">
+        <option value="">Select a topic...</option>
+      </select>
+      <button id="index-btn" title="Re-index vault">&#8635;</button>
+    </div>
+
+    <div id="chat-area" class="chat-area">
+      <div class="welcome">Select a topic and highlight any text on the page, or type a question below.</div>
+    </div>
+
+    <div id="server-warning" class="server-warning hidden">
+      Server offline &#8212; run <code>python server.py</code>
+    </div>
+
+    <div class="input-bar">
+      <input type="text" id="question-input" placeholder="Ask a question..." autocomplete="off" />
+      <button id="send-btn" title="Send">&#10148;</button>
+    </div>
+  </div>
+
+  <div id="mini-btn" class="mini-btn hidden" title="Expand">
+    <span>AI</span>
+  </div>
+
+  <script src="overlay.js"></script>
+</body>
+</html>
