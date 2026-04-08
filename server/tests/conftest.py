@@ -1,12 +1,12 @@
 import pytest
-import tempfile
 import os
-import fitz
 
 
 @pytest.fixture
 def tmp_vault(tmp_path):
     """Creates a temporary vault with two topics, each containing one PDF."""
+    import fitz  # deferred — heavy dependency, only needed for vault fixtures
+
     topic_a = tmp_path / "Algorithms"
     topic_b = tmp_path / "Networks"
     topic_a.mkdir()
