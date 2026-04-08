@@ -1,4 +1,4 @@
-from indexer import chunk_text, extract_text_from_pdf, index_vault
+from indexer import chunk_text
 
 
 def test_chunk_text_basic():
@@ -20,3 +20,9 @@ def test_chunk_text_short_text():
 def test_chunk_text_empty():
     chunks = chunk_text("")
     assert chunks == []
+
+
+def test_chunk_text_invalid_overlap():
+    import pytest
+    with pytest.raises(ValueError, match="overlap"):
+        chunk_text("some text", chunk_size=50, overlap=50)
