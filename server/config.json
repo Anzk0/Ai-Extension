@@ -1,0 +1,5 @@
+{
+  "vault_path": "C:/Users/khanp/OneDrive - University of Salford/ObsidianVault",
+  "claude_api_key": "sk-ant-YOUR-KEY-HERE",
+  "chroma_db_path": "./chroma_db"
+}
