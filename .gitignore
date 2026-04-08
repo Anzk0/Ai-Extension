@@ -1,0 +1,13 @@
+# Python
+**/__pycache__/
+**/*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Server
+server/config.json
+server/chroma_db/
+
+# Env
+.env
+.env.*
