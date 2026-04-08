@@ -17,21 +17,16 @@ def chunk_text(text, chunk_size=500, overlap=50):
     words = text.split()
     if not words:
         return []
-    chunks = []
     step = chunk_size - overlap
-    for i in range(0, len(words), step):
-        chunk = ' '.join(words[i:i + chunk_size])
-        if chunk:
-            chunks.append(chunk)
-    return chunks
+    return [
+        ' '.join(words[i:i + chunk_size])
+        for i in range(0, len(words), step)
+    ]
 
 
 def extract_text_from_pdf(path):
-    doc = fitz.open(path)
-    text = ""
-    for page in doc:
-        text += page.get_text()
-    return text
+    with fitz.open(path) as doc:
+        return "".join(page.get_text() for page in doc)
 
 
 def index_vault(vault_path, collection_name="vault"):
